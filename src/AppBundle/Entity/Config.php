@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Language;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -33,7 +34,7 @@ class Config
     private $id;
 
     /**
-     * @var \AppBundle\Entity\Language
+     * @var Language
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Language")
      * @ORM\JoinColumns({
@@ -53,5 +54,86 @@ class Config
     private $indexPage;
 
 
-}
 
+    /**
+     * Set indexArticlesQuantity
+     *
+     * @param integer $indexArticlesQuantity
+     *
+     * @return Config
+     */
+    public function setIndexArticlesQuantity($indexArticlesQuantity)
+    {
+        $this->indexArticlesQuantity = $indexArticlesQuantity;
+
+        return $this;
+    }
+
+    /**
+     * Get indexArticlesQuantity
+     *
+     * @return integer
+     */
+    public function getIndexArticlesQuantity()
+    {
+        return $this->indexArticlesQuantity;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set defaultLang
+     *
+     * @param Language $defaultLang
+     *
+     * @return Config
+     */
+    public function setDefaultLang(Language $defaultLang = null)
+    {
+        $this->defaultLang = $defaultLang;
+
+        return $this;
+    }
+
+    /**
+     * Get defaultLang
+     *
+     * @return Language
+     */
+    public function getDefaultLang()
+    {
+        return $this->defaultLang;
+    }
+
+    /**
+     * Set indexPage
+     *
+     * @param \AppBundle\Entity\Statics $indexPage
+     *
+     * @return Config
+     */
+    public function setIndexPage(\AppBundle\Entity\Statics $indexPage = null)
+    {
+        $this->indexPage = $indexPage;
+
+        return $this;
+    }
+
+    /**
+     * Get indexPage
+     *
+     * @return \AppBundle\Entity\Statics
+     */
+    public function getIndexPage()
+    {
+        return $this->indexPage;
+    }
+}

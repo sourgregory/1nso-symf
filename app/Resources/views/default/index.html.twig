@@ -1,6 +1,10 @@
-{% extends 'base.html.twig' %}
+{% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}
 
-{% block body %}
+{% block title %}
+ 1nso
+{% endblock %}
+
+{% block page_content %}
     <div id="wrapper">
         <div id="container">
             <div id="welcome">
@@ -42,11 +46,19 @@
                 </p>
             </div>
 
+            {% for page in pages %}
+                <div class="{{ cycle(['odd', 'even'], 1) }}">
+                    {{ page.content[0].language.name }}
+                </div>
+            {% endfor %}
+
         </div>
     </div>
 {% endblock %}
 
+
 {% block stylesheets %}
+{{parent()}}
 <style>
     body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
     h1, h2 { line-height: 1.2; margin: 0 0 .5em; }

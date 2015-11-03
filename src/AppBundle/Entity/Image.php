@@ -52,14 +52,14 @@ class Image
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updated_at", type="datetime", options={"default":"NOW()"})
+     * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updatedAt;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="deleted_at", type="datetime", options={"default":"NOW()"})
+     * @ORM\Column(name="deleted_at", type="datetime")
      */
     private $deletedAt;
 
@@ -218,4 +218,3 @@ class Image
         return $this->deletedAt;
     }
 }
-
