@@ -2,10 +2,11 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Page;
+use Doctrine\ORM\EntityRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\VarDumper\VarDumper;
 
 class DefaultController extends Controller
 {
@@ -14,9 +15,10 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-
-        $manager = $this->getDoctrine()->getManager();
-        $pages = $manager->getRepository('AppBundle:Page')->findAll();
+        /* @var $repo EntityRepository */
+        $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Page');
+        $pages = $repo->findAll();
+        VarDumper::dump($pages[0]);
 
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(

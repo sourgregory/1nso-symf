@@ -78,7 +78,7 @@ abstract class Statics
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\StaticContent", mappedBy="static")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\StaticContent", mappedBy="static", fetch="EAGER")
      */
     private $content;
 

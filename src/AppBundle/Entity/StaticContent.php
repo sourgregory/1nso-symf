@@ -34,7 +34,7 @@ class StaticContent
     /**
      * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Language")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Language", inversedBy="translations")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="language_id", referencedColumnName="id")
      * })

@@ -35,6 +35,11 @@ class Language
      */
     private $name;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\StaticContent", mappedBy="language")
+     */
+    private $translations;
     /**
      * @var \DateTime
      *
@@ -185,5 +190,21 @@ class Language
     public function getDeletedAt()
     {
         return $this->deletedAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTranslations()
+    {
+        return $this->translations;
+    }
+
+    /**
+     * @param mixed $translations
+     */
+    public function setTranslations($translations)
+    {
+        $this->translations = $translations;
     }
 }
